@@ -12,6 +12,8 @@ class ByteStream {
   private:
     // Your code here -- add private members as necessary.
 
+    // size_t capacity,readed_bytes,writed_bytes;
+// 
     // Hint: This doesn't need to be a sophisticated data structure at
     // all, but if any of your tests are taking longer than a second,
     // that's a sign that you probably want to keep exploring

@@ -9,6 +9,20 @@ using namespace std;
 void get_URL(const string &host, const string &path) {
     // Your code here.
 
+    TCPSocket tcpsocket;
+    Address addr(host,"http");
+
+    tcpsocket.connect(addr);
+    tcpsocket.write("GET "+path+" HTTP/1.1\r\n");
+    tcpsocket.write("HOST: "+host+"\r\n\r\n");
+    tcpsocket.shutdown(SHUT_WR);
+    
+    while(!tcpsocket.eof()){
+        string res = tcpsocket.read();
+        cout<<res;
+    }
+    
+
     // You will need to connect to the "http" service on
     // the computer whose name is in the "host" string,
     // then request the URL path given in the "path" string.
@@ -40,8 +54,10 @@ int main(int argc, char *argv[]) {
         const string host = argv[1];
         const string path = argv[2];
 
+        printf("shit");
         // Call the student-written function.
         get_URL(host, path);
+        printf("shit");
     } catch (const exception &e) {
         cerr << e.what() << "\n";
         return EXIT_FAILURE;
