@@ -59,6 +59,7 @@ void TCPReceiver::segment_received(const TCPSegment &seg) {
 
 }
 
+//自定义获取绝对的ackno
 uint64_t TCPReceiver::abs_ackno() const{
     uint64_t abs_ackno_without_fin = 1 + _reassembler.stream_out().bytes_written();
     //如果获取到fin了 那么就结束了 返回ackno的绝对位置
@@ -68,6 +69,7 @@ uint64_t TCPReceiver::abs_ackno() const{
     return abs_ackno_without_fin;
 }
 
+//转换abs_ackno TO ACKNO 
 optional<WrappingInt32> TCPReceiver::ackno() const { 
     if(!isn.has_value()){
         return nullopt;
@@ -75,4 +77,5 @@ optional<WrappingInt32> TCPReceiver::ackno() const {
     return make_optional<WrappingInt32>(wrap(abs_ackno(),isn.value())); 
 }
 
+//返回windowsize size 大小为 剩余的容量
 size_t TCPReceiver::window_size() const { return _reassembler.stream_out().remaining_capacity(); }
