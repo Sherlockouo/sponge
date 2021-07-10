@@ -14,7 +14,7 @@ void get_URL(const string &host, const string &path) {
 
     tcpsocket.connect(addr);
     tcpsocket.write("GET "+path+" HTTP/1.1\r\n");
-    tcpsocket.write("HOST: "+host+"\r\n\r\n");
+    tcpsocket.write("Host: "+host+"\r\n\r\n");
     tcpsocket.shutdown(SHUT_WR);
     
     while(!tcpsocket.eof()){
@@ -31,8 +31,8 @@ void get_URL(const string &host, const string &path) {
     // (not just one call to read() -- everything) until you reach
     // the "eof" (end of file).
 
-    cerr << "Function called: get_URL(" << host << ", " << path << ").\n";
-    cerr << "Warning: get_URL() has not been implemented yet.\n";
+    // cerr << "Function called: get_URL(" << host << ", " << path << ").\n";
+    // cerr << "Warning: get_URL() has not been implemented yet.\n";
 }
 
 int main(int argc, char *argv[]) {
@@ -54,10 +54,10 @@ int main(int argc, char *argv[]) {
         const string host = argv[1];
         const string path = argv[2];
 
-        printf("shit");
+        // printf("shit");
         // Call the student-written function.
         get_URL(host, path);
-        printf("shit");
+        // printf("shit");
     } catch (const exception &e) {
         cerr << e.what() << "\n";
         return EXIT_FAILURE;
