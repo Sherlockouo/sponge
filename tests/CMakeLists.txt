@@ -11,8 +11,6 @@ add_test_exec (byte_stream_one_write)
 add_test_exec (byte_stream_two_writes)
 add_test_exec (byte_stream_capacity)
 add_test_exec (byte_stream_many_writes)
-<<<<<<< HEAD
-=======
 add_test_exec (wrapping_integers_cmp)
 add_test_exec (wrapping_integers_unwrap)
 add_test_exec (wrapping_integers_wrap)
@@ -30,4 +28,3 @@ add_test_exec (send_ack)
 add_test_exec (send_window)
 add_test_exec (send_close)
 add_test_exec (send_extra)
->>>>>>> origin/lab3-startercode

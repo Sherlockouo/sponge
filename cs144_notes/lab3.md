@@ -25,3 +25,15 @@ It will be your TCPSender’s responsibility to:
 - Keep track of which segments have been sent but not yet acknowledged by the receiver— we call these “outstanding” segments 
 - Re-send outstanding segments if enough time passes since they were sent, and they haven’t been acknowledged yet
 
+Sender 需要保证 Receiver 收到每一个byte至少被接受了一次
+
+### TCP Sender 如何知道一个tcp段是否丢掉？
+
+Sender每隔一段时间回去调tick方法，如果超时了就会重传.
+
+
+
+
+
+
+
